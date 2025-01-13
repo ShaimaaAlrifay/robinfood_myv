@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'editProfile.dart'; // Import the second screen
+import 'edit_profile.dart'; 
 
 void main() {
   runApp(const MyApp());

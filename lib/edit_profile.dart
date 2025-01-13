@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'main.dart';
+
 
 void main() {
   runApp(EditProfilePage());
 }
 
 class EditProfilePage extends StatelessWidget {
+  const EditProfilePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
