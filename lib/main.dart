@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'editProfile.dart'; // Import the second screen
 
 void main() {
   runApp(const MyApp());
@@ -9,9 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SettingsScreen(),
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      home: SettingsScreen(), // First screen
     );
   }
 }
@@ -33,7 +35,10 @@ class SettingsScreen extends StatelessWidget {
         centerTitle: false,
         leading: IconButton(
           icon: const Icon(Icons.edit, color: Colors.black),
-          onPressed: () {},
+          onPressed: () {
+            // Navigate to Edit Profile Page
+            Get.to(() => EditProfilePage());
+          },
         ),
       ),
       body: Column(
@@ -61,22 +66,21 @@ class SettingsScreen extends StatelessWidget {
                 ),
                 const Text(
                   '+966545411002',
-                  style: TextStyle(color: Colors.grey,
-                  fontFamily: 'Shamel Book',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontFamily: 'Shamel Book',
                   ),
                 ),
               ],
             ),
           ),
 
-          //space
           const SizedBox(height: 25),
 
           // Stats Section
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              //first child
               _buildStatButton(
                 title: 'الطلبات السابقة',
                 value: '10',
@@ -84,8 +88,6 @@ class SettingsScreen extends StatelessWidget {
                 textColor: Colors.white,
               ),
               const SizedBox(width: 10),
-
-              //second child
               _buildStatButton(
                 title: 'الأصدقاء',
                 value: '10',
@@ -95,7 +97,6 @@ class SettingsScreen extends StatelessWidget {
             ],
           ),
 
-          //space
           const SizedBox(height: 25),
 
           // Options Section
@@ -123,7 +124,6 @@ class SettingsScreen extends StatelessWidget {
         ],
       ),
 
-      //------------ Navigation Bar -------------
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         selectedItemColor: Colors.orange,
@@ -148,9 +148,6 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-//--------- components section --------------
-
-  //stat button
   Widget _buildStatButton({
     required String title,
     required String value,
@@ -188,7 +185,6 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-  //list option
   Widget _buildOption({
     required String title,
     required IconData icon,
@@ -225,7 +221,6 @@ class SettingsScreen extends StatelessWidget {
             ),
             trailing: const Icon(Icons.arrow_forward_ios, color: Colors.black),
           ),
-
           ListTile(
             leading: Icon(icon2, color: iconColor2 ?? Colors.black),
             title: Text(
@@ -240,8 +235,6 @@ class SettingsScreen extends StatelessWidget {
               color: iconColor2 ?? Colors.black,
             ),
           ),
-
-          //this is Optional
           if (title3 != null && icon3 != null)
             ListTile(
               leading: Icon(icon3, color: iconColor3 ?? Colors.black),
