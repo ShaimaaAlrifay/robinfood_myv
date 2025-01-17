@@ -10,8 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.8
-  get: ^4.6.5
+  get: ^4.3.8 # Update to the latest version of Get
+  flutter_localizations:
+    sdk: flutter # This is important for localization to work
+  intl: any
   
 dev_dependencies:
   flutter_test:
@@ -19,6 +21,7 @@ dev_dependencies:
   flutter_lints: ^5.0.0
 
 flutter:
+  generate: true   
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/profile.png
@@ -40,14 +43,3 @@ flutter:
     - family: Shamel Book
       fonts:   
         - asset: assets/fonts/ShamelFamily-SansBook.ttf
-
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/to/font-from-package

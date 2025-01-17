@@ -11,6 +11,7 @@ class EditProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var text = "الحفظ".obs;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -36,6 +37,8 @@ class EditProfilePage extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 20),
+
+              //profile image
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.asset(
@@ -46,16 +49,20 @@ class EditProfilePage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
+
               buildTextField(label: "اسم المستخدم", hintText: "ROBINHOOD1"),
               SizedBox(height: 20),
+
               buildTextField(label: "رقم الجوال", hintText: "0500000000"),
-              Spacer(),
+              // Spacer(),
+              SizedBox(height: 320),
+
               SizedBox(
-                width: double.infinity,
+                width: 366,
                 height: 52,
                 child: ElevatedButton(
                   onPressed: () {
-                    Get.back();
+                    text.value = "تم الحفظ";
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFF5B3E1F),
@@ -63,10 +70,8 @@ class EditProfilePage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                     ),
                   ),
-                  child: Text(
-                    "الحفظ",
-                    style: TextStyle(fontSize: 18, color: Colors.white),
-                  ),
+                  child: Obx(()=> Text(text.value,
+                    style: TextStyle(fontSize: 18, color: Colors.white))),
                 ),
               ),
               SizedBox(height: 20),
@@ -79,7 +84,7 @@ class EditProfilePage extends StatelessWidget {
 
   Widget buildTextField({required String label, required String hintText}) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Text(
           label,
@@ -93,7 +98,7 @@ class EditProfilePage extends StatelessWidget {
             hintStyle: TextStyle(
                 fontSize: 16, color: Colors.black, fontFamily: "Shamel Book"),
             filled: true,
-            fillColor: Color(0xFFF7EFDC), // لون الخلفية
+            fillColor: Color(0xFFF7EFDC),
             contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
