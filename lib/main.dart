@@ -53,19 +53,35 @@ class SettingsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFFCFCFC),
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.edit, color: Colors.black),
-          onPressed: () {
-            // Navigate to Edit Profile Page
-            Get.to(() => const EditProfilePage());
-          },
-        ),
         backgroundColor: const Color(0xFFFCFCFC),
         title: Text(
-          'settings'.tr, // Translation key for 'settings'
-          style: const TextStyle(color: Colors.black),
+          'settings'.tr,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+          ),
         ),
-        centerTitle: false,
+        leading: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: Container(
+            margin: const EdgeInsets.all(1),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+                boxShadow: const [
+                  BoxShadow(
+                      blurRadius: 5,
+                      color: Color.fromARGB(255, 224, 224, 224),
+                      offset: Offset(0, 1))
+                ]),
+            child: IconButton(
+              icon: Icon(Icons.edit, color: Colors.black),
+              onPressed: () {
+                Get.to(() => const EditProfilePage());
+              },
+            ),
+          ),
+        ),
       ),
       body: Directionality(
         textDirection: isArabic ? TextDirection.rtl : TextDirection.ltr,
@@ -108,17 +124,17 @@ class SettingsScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _buildStatButton(
+                  title: 'friends'.tr,
+                  value: '10',
+                  color: const Color(0xFFF2E2BC),
+                  textColor: Colors.black,
+                ),
+                const SizedBox(width: 10),
+                _buildStatButton(
                   title: 'previous_orders'.tr,
                   value: '10',
                   color: const Color(0xff452E09),
                   textColor: Colors.white,
-                ),
-                const SizedBox(width: 10),
-                _buildStatButton(
-                  title: 'الأصدقاء'.tr,
-                  value: '10',
-                  color: const Color(0xFFF2E2BC),
-                  textColor: Colors.black,
                 ),
               ],
             ),
@@ -128,19 +144,19 @@ class SettingsScreen extends StatelessWidget {
               child: ListView(
                 children: [
                   _buildOption(
-                    title: 'عن روبن فود'.tr,
+                    title: 'about_us'.tr,
                     icon: Icons.info_outline,
                     onTap: () {
                       // Navigate to About Us page
                       // Get.to(() => const AboutUsPage());
                     },
-                    title2: 'الشروط والأحكام'.tr,
+                    title2: 'terms_conditions'.tr,
                     icon2: Icons.article_outlined,
                     onTap2: () {
                       // Navigate to Terms and Conditions page
                       // Get.to(() => const TermsAndConditionsPage());
                     },
-                    title3: 'تواصل معنا'.tr,
+                    title3: 'contact_us'.tr,
                     icon3: Icons.headset_mic_outlined,
                     onTap3: () {
                       // Navigate to Contact Us page
@@ -148,13 +164,13 @@ class SettingsScreen extends StatelessWidget {
                     },
                   ),
                   _buildOption(
-                    title: 'اللغة'.tr,
+                    title: 'change_language'.tr,
                     icon: Icons.language,
                     onTap: () {
                       // Show the language selection dialog
                       _showLanguageDialog(context);
                     },
-                    title2: 'تسجيل الخروج'.tr,
+                    title2: 'logout'.tr,
                     icon2: Icons.logout,
                     iconColor2: Colors.red,
                     onTap2: () {
@@ -177,15 +193,15 @@ class SettingsScreen extends StatelessWidget {
         items: [
           BottomNavigationBarItem(
             icon: const Icon(Icons.settings),
-            label: 'الإعدادات'.tr,
+            label: 'settings'.tr,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.receipt_long),
-            label: 'الطلبات'.tr,
+            label: 'previous_orders'.tr,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.home),
-            label: 'الرئيسية'.tr,
+            label: 'home'.tr,
           ),
         ],
       ),
@@ -199,7 +215,7 @@ void _showLanguageDialog(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('اختر اللغة'.tr), // Translation for "Choose Language"
+        title: Text('select_language'.tr),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -303,7 +319,7 @@ Widget _buildOption({
     child: Column(
       children: [
         InkWell(
-          onTap: onTap, // Correct use of onTap
+          onTap: onTap,
           child: ListTile(
             leading: Icon(icon),
             title: Text(title),
@@ -312,7 +328,7 @@ Widget _buildOption({
         ),
         if (title2 != null && icon2 != null && onTap2 != null)
           InkWell(
-            onTap: onTap2, // Correct use of onTap2
+            onTap: onTap2,
             child: ListTile(
               leading: Icon(icon2, color: iconColor2 ?? Colors.black),
               title: Text(
@@ -330,7 +346,7 @@ Widget _buildOption({
           ),
         if (title3 != null && icon3 != null && onTap3 != null)
           InkWell(
-            onTap: onTap3, // Correct use of onTap3
+            onTap: onTap3,
             child: ListTile(
               leading: Icon(icon3),
               title: Text(title3),
