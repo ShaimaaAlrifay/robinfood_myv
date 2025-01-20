@@ -10,9 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  get: ^4.3.8 # Update to the latest version of Get
+  get: ^4.3.8  # Ensure GetX is included
   flutter_localizations:
-    sdk: flutter # This is important for localization to work
+    sdk: flutter
   intl: any
   
 dev_dependencies:
