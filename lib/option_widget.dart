@@ -1,7 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-
 class OptionWidget extends StatelessWidget {
   final String title;
   final IconData icon;
@@ -12,9 +11,9 @@ class OptionWidget extends StatelessWidget {
   final String? title3;
   final IconData? icon3;
   final void Function()? onTap3;
-  final Color? iconColor2; // Added the iconColor2 parameter
+  final Color? iconColor2; // Define the parameter here
 
-  const OptionWidget({super.key, 
+  const OptionWidget({
     required this.title,
     required this.icon,
     required this.onTap,
@@ -24,7 +23,7 @@ class OptionWidget extends StatelessWidget {
     this.title3,
     this.icon3,
     this.onTap3,
-    this.iconColor2, // Make sure this is passed
+    this.iconColor2,
   });
 
   @override
@@ -58,9 +57,12 @@ class OptionWidget extends StatelessWidget {
             InkWell(
               onTap: onTap2,
               child: ListTile(
-                leading: Icon(icon2, color: iconColor2 ?? Colors.black), // Use iconColor2 here
+                leading: Icon(icon2, color: iconColor2 ?? Colors.black), 
                 title: Text(title2 ?? ''),
-                trailing: const Icon(Icons.arrow_forward_ios),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  color: iconColor2 ?? Colors.black, 
+                ),
               ),
             ),
           if (title3 != null && icon3 != null && onTap3 != null)

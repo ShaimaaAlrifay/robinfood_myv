@@ -1,39 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() {
-  runApp(const EditProfilePage());
-}
-
-class EditProfilePage extends StatelessWidget {
+class EditProfilePage extends StatefulWidget {
   const EditProfilePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    var text = "الحفظ".obs;
+  _EditProfilePageState createState() => _EditProfilePageState();
+}
 
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: const Color(0xFFFCFCFC),
-        appBar: _buildAppBar(),
+class _EditProfilePageState extends State<EditProfilePage> {
+  var text = 'save'.tr.obs;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xFFFCFCFC),
+      appBar: _buildAppBar(),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: ListView(
+          child: Column(
             children: [
               const SizedBox(height: 20),
               _buildProfileImage(),
               const SizedBox(height: 20),
-              _buildTextField(label: "اسم المستخدم", hintText: "ROBINHOOD1"),
+              _buildTextField(label: 'user_name'.tr, hintText: "ROBINHOOD1"),
               const SizedBox(height: 20),
-              _buildTextField(label: "رقم الجوال", hintText: "0500000000"),
-              const SizedBox(height: 20),
-              _buildSaveButton(text),
+              _buildTextField(label: 'phone_number'.tr, hintText: "0500000000"),
+              const SizedBox(height: 320),
+              _buildSaveButton(),
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 
   // AppBar Widget
@@ -47,12 +45,13 @@ class EditProfilePage extends StatelessWidget {
           Get.back();
         },
       ),
-      title: const Text(
-        "تعديل الملف الشخصي",
-        style: TextStyle(
+      title: Text(
+        'Edit_Profile'.tr,
+        style: const TextStyle(
           color: Colors.black,
           fontSize: 20,
           fontWeight: FontWeight.bold,
+          fontFamily: "Shamel Bold",
         ),
       ),
     );
@@ -61,12 +60,12 @@ class EditProfilePage extends StatelessWidget {
   // Profile Image Widget
   Widget _buildProfileImage() {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(75),
       child: Image.asset(
         'assets/images/profile.png',
-        width: 113,
-        height: 113,
-        fit: BoxFit.cover,
+        width: Get.width * 0.3, 
+        height: Get.width * 0.3, 
+        fit: BoxFit.cover, 
       ),
     );
   }
@@ -108,13 +107,13 @@ class EditProfilePage extends StatelessWidget {
   }
 
   // Save Button Widget
-  Widget _buildSaveButton(RxString text) {
+  Widget _buildSaveButton() {
     return SizedBox(
       width: Get.width * 0.9, // Dynamic width
       height: 52,
       child: ElevatedButton(
         onPressed: () {
-          text.value = "تم الحفظ";
+          text.value = 'saved'.tr;
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFF5B3E1F),

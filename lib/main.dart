@@ -5,7 +5,7 @@ import 'messages.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyApp()); 
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       translations: Messages(),
       locale: Get.deviceLocale,
       fallbackLocale: const Locale('en', 'US'),
-      home: const SettingsScreen(),
+      home: SettingsScreen(),
       supportedLocales: const [
         Locale('en', 'US'),
         Locale('ar', 'SA'),

@@ -6,7 +6,7 @@ class StatButton extends StatelessWidget {
   final Color color;
   final Color textColor;
 
-  const StatButton({super.key, 
+  const StatButton({ 
     required this.title,
     required this.value,
     required this.color,

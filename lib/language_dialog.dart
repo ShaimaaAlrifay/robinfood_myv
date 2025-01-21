@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 class LanguageDialog extends StatelessWidget {
   const LanguageDialog({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(

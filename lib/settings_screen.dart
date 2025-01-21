@@ -26,8 +26,7 @@ class SettingsScreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.edit, color: Colors.black),
           onPressed: () {
-            // Navigate to Edit Profile Page
-            Get.to(() => const EditProfilePage());
+            Get.to(() => EditProfilePage());
           },
         ),
       ),
@@ -54,7 +53,8 @@ class SettingsScreen extends StatelessWidget {
                   ),
                   const Text(
                     '+966545411002',
-                    style: TextStyle(color: Colors.grey, fontFamily: 'Shamel Book'),
+                    style: TextStyle(
+                        color: Colors.grey, fontFamily: 'Shamel Book'),
                   ),
                 ],
               ),
@@ -100,19 +100,18 @@ class SettingsScreen extends StatelessWidget {
                     },
                   ),
                   OptionWidget(
-  title: 'change_language'.tr,
-  icon: Icons.language,
-  onTap: () {
-    _showLanguageDialog(context);
-  },
-  title2: 'logout'.tr,
-  icon2: Icons.logout,
-  iconColor2: Colors.red, // Pass iconColor2 here
-  onTap2: () {
-    // Handle logout
-  },
-)
-
+                    title: 'change_language'.tr,
+                    icon: Icons.language,
+                    onTap: () {
+                      _showLanguageDialog(context);
+                    },
+                    title2: 'logout'.tr,
+                    icon2: Icons.logout,
+                    iconColor2: Colors.red, // This should work now
+                    onTap2: () {
+                      // Handle logout
+                    },
+                  )
                 ],
               ),
             ),
