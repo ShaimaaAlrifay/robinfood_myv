@@ -58,7 +58,7 @@ class OptionWidget extends StatelessWidget {
               onTap: onTap2,
               child: ListTile(
                 leading: Icon(icon2, color: iconColor2 ?? Colors.black), 
-                title: Text(title2 ?? ''),
+                title: Text(title2 ?? '', style: TextStyle(color: iconColor2 ?? Colors.black)),
                 trailing: Icon(
                   Icons.arrow_forward_ios,
                   color: iconColor2 ?? Colors.black, 
